@@ -7,10 +7,10 @@ import (
 )
 
 type Config struct {
-	HttpAddr  string `json:"httpAddr" yaml:"httpAddr" default:":10000"`
-	GrpcAddr  string `json:"grpcAddr" yaml:"grpcAddr" default:":10001"`
-	DebugAddr string `json:"debugAddr" yaml:"debugAddr" default:":10002"`
-	UdpAddr   string `json:"udpAddr" yaml:"udpAddr" default:":10003"`
+	DebugAddr string `json:"debugAddr" yaml:"debugAddr" default:":20170"`
+	HttpAddr  string `json:"httpAddr" yaml:"httpAddr" default:":20171"`
+	GrpcAddr  string `json:"grpcAddr" yaml:"grpcAddr" default:":20172"`
+	UdpAddr   string `json:"udpAddr" yaml:"udpAddr" default:":20173"`
 }
 
 func NewConfig(path ...string) *Config {
