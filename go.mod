@@ -14,7 +14,7 @@ require (
 	github.com/google/uuid v1.3.0
 	github.com/hashicorp/hcl v1.0.0
 	github.com/imdario/mergo v0.3.12
-	github.com/mojo-lang/core/go v0.0.0-20211106085539-881e6872fa73
+	github.com/mojo-lang/core/go v0.0.0-20211121055316-dc6cb21cb918
 	github.com/nacos-group/nacos-sdk-go v1.0.9
 	github.com/opentracing/opentracing-go v1.2.0
 	github.com/pkg/errors v0.9.1
