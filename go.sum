@@ -236,6 +236,8 @@ github.com/mojo-lang/core/go v0.0.0-20211106085539-881e6872fa73 h1:BYyzaNtHrJMh7
 github.com/mojo-lang/core/go v0.0.0-20211106085539-881e6872fa73/go.mod h1:trkdXpXgsA0Mgt83SCwKJiIPnpy7eerysjaJ4gYyvWM=
 github.com/mojo-lang/core/go v0.0.0-20211121055316-dc6cb21cb918 h1:66kArgQdu6RbAHzyHtDl9Ip1Z30uQ5+tp6tvQlvdAto=
 github.com/mojo-lang/core/go v0.0.0-20211121055316-dc6cb21cb918/go.mod h1:SbUGVbcq9wVDkQrM2HKwI2mrp3xOsfs2tODfoIVukpE=
+github.com/mojo-lang/core/go v0.0.0-20211123010202-03f9f6e22fd2 h1:XoRJjPEP6UetGefGKDdicYxxdX2MBSCNanCLZ6q6lM8=
+github.com/mojo-lang/core/go v0.0.0-20211123010202-03f9f6e22fd2/go.mod h1:wxoQGiRDiWUOr780A65MRvGpgRvOMswKGMzHFtgVGI8=
 github.com/mwitkow/go-conntrack v0.0.0-20161129095857-cc309e4a2223/go.mod h1:qRWi+5nqEBWmkhHvq77mSJWrCKwh8bxhgT7d/eI7P4U=
 github.com/mwitkow/go-conntrack v0.0.0-20190716064945-2f068394615f/go.mod h1:qRWi+5nqEBWmkhHvq77mSJWrCKwh8bxhgT7d/eI7P4U=
 github.com/nacos-group/nacos-sdk-go v1.0.9 h1:sMvrp6tZj4LdhuHRsS4GCqASB81k3pjmT2ykDQQpwt0=
