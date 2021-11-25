@@ -6,7 +6,6 @@ import (
 	"os"
 	"os/exec"
 	"os/user"
-	"strconv"
 	"syscall"
 	"time"
 )
@@ -65,34 +64,7 @@ func (p *Process) SetEnv(env []string) {
 	}
 }
 
-// SetsysProcAttr - set Process group ID and owner (run on behalf)
-func (p *Process) SetsysProcAttr() error {
-	sysProcAttr := &syscall.SysProcAttr{
-		Setpgid: true, // Set Process group ID to Pgid, or, if Pgid == 0, to new pid.
-		Pgid:    0,    // Child's Process group ID if Setpgid.
-	}
 
-	// set owner
-	if p.user != nil {
-		uid, err := strconv.Atoi(p.user.Uid)
-		if err != nil {
-			return err
-		}
-		gid, err := strconv.Atoi(p.user.Gid)
-		if err != nil {
-			return err
-		}
-		sysProcAttr.Credential = &syscall.Credential{
-			Uid: uint32(uid),
-			Gid: uint32(gid),
-		}
-	}
-
-	// set the attributes
-	p.Cmd.SysProcAttr = sysProcAttr
-
-	return nil
-}
 
 // Start runs the command
 func (p *Process) Start() (*Process, error) {
@@ -108,7 +80,7 @@ func (p *Process) Start() (*Process, error) {
 	p.SetEnv(os.Environ())
 
 	// set sysProcAttr
-	if err := p.SetsysProcAttr(); err != nil {
+	if err := SetSysProcAttr(p); err != nil {
 		return nil, err
 	}
 
@@ -176,8 +148,7 @@ func (p *Process) Wait(stdout, stderr *os.File) {
 
 // Kill the entire Process group.
 func (p *Process) Kill() error {
-	ProcessGroup := 0 - p.Cmd.Process.Pid
-	return syscall.Kill(ProcessGroup, syscall.SIGKILL)
+	return Kill(p)
 }
 
 // Pid return Process PID
@@ -190,7 +161,7 @@ func (p *Process) Pid() int {
 
 // Signal sends a signal to the Process
 func (p *Process) Signal(sig syscall.Signal) error {
-	return syscall.Kill(p.Cmd.Process.Pid, sig)
+	return Signal(p, sig)
 }
 
 // NewProcess return Process instance
