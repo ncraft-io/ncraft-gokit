@@ -9,7 +9,7 @@ import (
 type Config struct {
 	Enable bool    `json:"enable" yaml:"Enable" default:"false"`
 	Url    string  `json:"url" yaml:"url" default:"localhost:6831"`
-	Param  float64 `json:"param" json:"yaml" default:"100000"`
+	Param  float64 `json:"param" json:"param" default:"100000"`
 }
 
 func NewConfig(path ...string) *Config {
