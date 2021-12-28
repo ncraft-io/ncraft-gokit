@@ -28,7 +28,7 @@ const (
 
 func init() {
 	workPath, _ := os.Getwd()
-	sources := readSource(workPath + "/conf", os.Getenv("deploy_env"))
+	sources := newFileSources(workPath+"/conf", os.Getenv("deploy_env"))
 
 	sources = append(sources, env.NewSource())
 	// flag.NewSource(),
@@ -38,13 +38,13 @@ func init() {
 	}
 }
 
-func readSource(dir string, env string) []source.Source {
+func newFileSources(dir string, env string) []source.Source {
 	var sources []source.Source
 
 	files, _ := ioutil.ReadDir(dir)
 	for _, f := range files {
 		if f.IsDir() {
-			ss := readSource(f.Name(), env)
+			ss := newFileSources(f.Name(), env)
 			sources = append(sources, ss...)
 		} else {
 			segments := strings.Split(f.Name(), ".")
