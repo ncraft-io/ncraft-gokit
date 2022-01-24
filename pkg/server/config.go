@@ -14,7 +14,7 @@ type Config struct {
 	DebugAddr string `json:"debugAddr" yaml:"debugAddr" default:":20170"`
 	HttpAddr  string `json:"httpAddr" yaml:"httpAddr" default:":20171"`
 	GrpcAddr  string `json:"grpcAddr" yaml:"grpcAddr" default:":20172"`
-	TcpAddr   string `json:"grpcAddr" yaml:"grpcAddr" default:":20173"`
+	TcpAddr   string `json:"tcpAddr" yaml:"tpcAddr" default:":20173"`
 	UdpAddr   string `json:"udpAddr" yaml:"udpAddr" default:":20174"`
 	perf      Perf   `json:"perf" yaml:"perf"`
 }
