@@ -1,4 +1,4 @@
-module github.com/ncraft-io/ncraft-go
+module github.com/ncraft-io/ncraft-gokit
 
 go 1.16
 

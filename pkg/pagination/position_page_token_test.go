@@ -1,18 +1,18 @@
 package pagination
 
 import (
-	"github.com/alecthomas/assert"
-	"testing"
+    "github.com/alecthomas/assert"
+    "testing"
 )
 
 func TestPositionPageToken_Create(t *testing.T) {
-	token := (&PositionPageToken{}).Create(100).Format()
-	_ = token
+    token := (&PositionPageToken{}).Create(100).Format()
+    _ = token
 
-	assert.NotEmpty(t, token)
+    assert.NotEmpty(t, token)
 
-	token2 := &PositionPageToken{}
-	err := token2.Parse(token)
-	assert.NoError(t, err)
-	assert.Equal(t, int32(100), token2.Position)
+    token2 := &PositionPageToken{}
+    err := token2.Parse(token)
+    assert.NoError(t, err)
+    assert.Equal(t, int32(100), token2.Position)
 }

@@ -1,43 +1,43 @@
 package json
 
 import (
-	"testing"
+    "testing"
 
-	"github.com/ncraft-io/ncraft-go/pkg/config/source"
+    "github.com/ncraft-io/ncraft-gokit/pkg/config/source"
 )
 
 func TestReader(t *testing.T) {
-	data := []byte(`{"foo": "bar", "baz": {"bar": "cat"}}`)
+    data := []byte(`{"foo": "bar", "baz": {"bar": "cat"}}`)
 
-	testData := []struct {
-		path  []string
-		value string
-	}{
-		{
-			[]string{"foo"},
-			"bar",
-		},
-		{
-			[]string{"baz", "bar"},
-			"cat",
-		},
-	}
+    testData := []struct {
+        path  []string
+        value string
+    }{
+        {
+            []string{"foo"},
+            "bar",
+        },
+        {
+            []string{"baz", "bar"},
+            "cat",
+        },
+    }
 
-	r := NewReader()
+    r := NewReader()
 
-	c, err := r.Merge(&source.ChangeSet{Data: data}, &source.ChangeSet{})
-	if err != nil {
-		t.Fatal(err)
-	}
+    c, err := r.Merge(&source.ChangeSet{Data: data}, &source.ChangeSet{})
+    if err != nil {
+        t.Fatal(err)
+    }
 
-	values, err := r.Values(c)
-	if err != nil {
-		t.Fatal(err)
-	}
+    values, err := r.Values(c)
+    if err != nil {
+        t.Fatal(err)
+    }
 
-	for _, test := range testData {
-		if v := values.Get(test.path...).String(""); v != test.value {
-			t.Fatalf("Expected %s got %s for path %v", test.value, v, test.path)
-		}
-	}
+    for _, test := range testData {
+        if v := values.Get(test.path...).String(""); v != test.value {
+            t.Fatalf("Expected %s got %s for path %v", test.value, v, test.path)
+        }
+    }
 }

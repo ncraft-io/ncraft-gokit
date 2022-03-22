@@ -1,26 +1,26 @@
 package hcl
 
 import (
-	"encoding/json"
+    "encoding/json"
 
-	"github.com/hashicorp/hcl"
-	"github.com/ncraft-io/ncraft-go/pkg/config/encoder"
+    "github.com/hashicorp/hcl"
+    "github.com/ncraft-io/ncraft-gokit/pkg/config/encoder"
 )
 
 type hclEncoder struct{}
 
 func (h hclEncoder) Encode(v interface{}) ([]byte, error) {
-	return json.Marshal(v)
+    return json.Marshal(v)
 }
 
 func (h hclEncoder) Decode(d []byte, v interface{}) error {
-	return hcl.Unmarshal(d, v)
+    return hcl.Unmarshal(d, v)
 }
 
 func (h hclEncoder) String() string {
-	return "hcl"
+    return "hcl"
 }
 
 func NewEncoder() encoder.Encoder {
-	return hclEncoder{}
+    return hclEncoder{}
 }

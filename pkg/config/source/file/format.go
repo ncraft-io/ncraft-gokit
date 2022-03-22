@@ -1,15 +1,15 @@
 package file
 
 import (
-	"strings"
+    "strings"
 
-	"github.com/ncraft-io/ncraft-go/pkg/config/encoder"
+    "github.com/ncraft-io/ncraft-gokit/pkg/config/encoder"
 )
 
 func format(p string, e encoder.Encoder) string {
-	parts := strings.Split(p, ".")
-	if len(parts) > 1 {
-		return parts[len(parts)-1]
-	}
-	return e.String()
+    parts := strings.Split(p, ".")
+    if len(parts) > 1 {
+        return parts[len(parts)-1]
+    }
+    return e.String()
 }

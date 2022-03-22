@@ -1,27 +1,27 @@
 package nacos
 
-import "github.com/ncraft-io/ncraft-go/pkg/config/source"
+import "github.com/ncraft-io/ncraft-gokit/pkg/config/source"
 
 type nacosSource struct {
 }
 
 func (n *nacosSource) Read() (*source.ChangeSet, error) {
 
-	return nil, nil
+    return nil, nil
 }
 
 func (n *nacosSource) Write(*source.ChangeSet) error {
-	return nil
+    return nil
 }
 
 func (n *nacosSource) Watch() (source.Watcher, error) {
-	return nil, nil
+    return nil, nil
 }
 
 func (n *nacosSource) String() string {
-	return ""
+    return ""
 }
 
 func NewSource(opts ...source.Option) source.Source {
-	return &nacosSource{}
+    return &nacosSource{}
 }

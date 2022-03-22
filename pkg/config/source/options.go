@@ -1,38 +1,38 @@
 package source
 
 import (
-	"context"
+    "context"
 
-	"github.com/ncraft-io/ncraft-go/pkg/config/encoder"
-	"github.com/ncraft-io/ncraft-go/pkg/config/encoder/json"
+    "github.com/ncraft-io/ncraft-gokit/pkg/config/encoder"
+    "github.com/ncraft-io/ncraft-gokit/pkg/config/encoder/json"
 )
 
 type Options struct {
-	// Encoder
-	Encoder encoder.Encoder
+    // Encoder
+    Encoder encoder.Encoder
 
-	// for alternative data
-	Context context.Context
+    // for alternative data
+    Context context.Context
 }
 
 type Option func(o *Options)
 
 func NewOptions(opts ...Option) Options {
-	options := Options{
-		Encoder: json.NewEncoder(),
-		Context: context.Background(),
-	}
+    options := Options{
+        Encoder: json.NewEncoder(),
+        Context: context.Background(),
+    }
 
-	for _, o := range opts {
-		o(&options)
-	}
+    for _, o := range opts {
+        o(&options)
+    }
 
-	return options
+    return options
 }
 
 // WithEncoder sets the source encoder
 func WithEncoder(e encoder.Encoder) Option {
-	return func(o *Options) {
-		o.Encoder = e
-	}
+    return func(o *Options) {
+        o.Encoder = e
+    }
 }

@@ -1,5 +1,5 @@
 package counter
 
 type BatchRequest interface {
-	GetBatchCount() int64
+    GetBatchCount() int64
 }

@@ -1,88 +1,88 @@
 package flag
 
 import (
-	"errors"
-	"flag"
-	"github.com/ncraft-io/ncraft-go/pkg/config/source"
-	"github.com/imdario/mergo"
-	"strings"
-	"time"
+    "errors"
+    "flag"
+    "github.com/imdario/mergo"
+    "github.com/ncraft-io/ncraft-gokit/pkg/config/source"
+    "strings"
+    "time"
 )
 
 type flagsrc struct {
-	opts source.Options
+    opts source.Options
 }
 
 func (fs *flagsrc) Read() (*source.ChangeSet, error) {
-	if !flag.Parsed() {
-		return nil, errors.New("flags not parsed")
-	}
+    if !flag.Parsed() {
+        return nil, errors.New("flags not parsed")
+    }
 
-	var changes map[string]interface{}
+    var changes map[string]interface{}
 
-	visitFn := func(f *flag.Flag) {
-		n := strings.ToLower(f.Name)
-		keys := strings.FieldsFunc(n, split)
-		reverse(keys)
+    visitFn := func(f *flag.Flag) {
+        n := strings.ToLower(f.Name)
+        keys := strings.FieldsFunc(n, split)
+        reverse(keys)
 
-		tmp := make(map[string]interface{})
-		for i, k := range keys {
-			if i == 0 {
-				tmp[k] = f.Value
-				continue
-			}
+        tmp := make(map[string]interface{})
+        for i, k := range keys {
+            if i == 0 {
+                tmp[k] = f.Value
+                continue
+            }
 
-			tmp = map[string]interface{}{k: tmp}
-		}
+            tmp = map[string]interface{}{k: tmp}
+        }
 
-		mergo.Map(&changes, tmp) // need to sort error handling
-		return
-	}
+        mergo.Map(&changes, tmp) // need to sort error handling
+        return
+    }
 
-	unset, ok := fs.opts.Context.Value(includeUnsetKey{}).(bool)
-	if ok && unset {
-		flag.VisitAll(visitFn)
-	} else {
-		flag.Visit(visitFn)
-	}
+    unset, ok := fs.opts.Context.Value(includeUnsetKey{}).(bool)
+    if ok && unset {
+        flag.VisitAll(visitFn)
+    } else {
+        flag.Visit(visitFn)
+    }
 
-	b, err := fs.opts.Encoder.Encode(changes)
-	if err != nil {
-		return nil, err
-	}
+    b, err := fs.opts.Encoder.Encode(changes)
+    if err != nil {
+        return nil, err
+    }
 
-	cs := &source.ChangeSet{
-		Format:    fs.opts.Encoder.String(),
-		Data:      b,
-		Timestamp: time.Now(),
-		Source:    fs.String(),
-	}
-	cs.Checksum = cs.Sum()
+    cs := &source.ChangeSet{
+        Format:    fs.opts.Encoder.String(),
+        Data:      b,
+        Timestamp: time.Now(),
+        Source:    fs.String(),
+    }
+    cs.Checksum = cs.Sum()
 
-	return cs, nil
+    return cs, nil
 }
 
 func split(r rune) bool {
-	return r == '-' || r == '_'
+    return r == '-' || r == '_'
 }
 
 func reverse(ss []string) {
-	for i := len(ss)/2 - 1; i >= 0; i-- {
-		opp := len(ss) - 1 - i
-		ss[i], ss[opp] = ss[opp], ss[i]
-	}
+    for i := len(ss)/2 - 1; i >= 0; i-- {
+        opp := len(ss) - 1 - i
+        ss[i], ss[opp] = ss[opp], ss[i]
+    }
 }
 
 func (fs *flagsrc) Watch() (source.Watcher, error) {
-	return source.NewNoopWatcher()
+    return source.NewNoopWatcher()
 }
 
 func (fs *flagsrc) Write(cs *source.ChangeSet) error {
-	return nil
+    return nil
 }
 
 func (fs *flagsrc) String() string {
-	return "flag"
+    return "flag"
 }
 
 // NewSource returns a config source for integrating parsed flags.
@@ -97,5 +97,5 @@ func (fs *flagsrc) String() string {
 //          }
 //      }
 func NewSource(opts ...source.Option) source.Source {
-	return &flagsrc{opts: source.NewOptions(opts...)}
+    return &flagsrc{opts: source.NewOptions(opts...)}
 }
