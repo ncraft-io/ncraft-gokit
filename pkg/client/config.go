@@ -1,8 +1,8 @@
 package client
 
 import (
-    "github.com/ncraft-io/ncraft-gokit/pkg/config"
-    "github.com/ncraft-io/ncraft-gokit/pkg/logs"
+    "github.com/ncraft-io/ncraft-go/pkg/config"
+    "github.com/ncraft-io/ncraft-go/pkg/logs"
     "github.com/ncraft-io/ncraft-gokit/pkg/sd"
     "strings"
 )

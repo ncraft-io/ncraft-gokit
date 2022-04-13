@@ -1,7 +1,7 @@
 package sd
 
 import (
-    "github.com/ncraft-io/ncraft-gokit/pkg/config"
+    "github.com/ncraft-io/ncraft-go/pkg/config"
     "github.com/ncraft-io/ncraft-gokit/pkg/retry"
     "github.com/ncraft-io/ncraft-gokit/pkg/sd/direct"
     "github.com/ncraft-io/ncraft-gokit/pkg/sd/etcdv3"

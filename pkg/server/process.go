@@ -2,7 +2,7 @@ package server
 
 import (
     "fmt"
-    "github.com/ncraft-io/ncraft-gokit/pkg/logs"
+    "github.com/ncraft-io/ncraft-go/pkg/logs"
     "os"
     "os/exec"
     "os/user"

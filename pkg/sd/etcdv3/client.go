@@ -5,7 +5,7 @@ import (
     "github.com/go-kit/kit/log"
     kitsd "github.com/go-kit/kit/sd"
     std "github.com/go-kit/kit/sd/etcdv3"
-    "github.com/ncraft-io/ncraft-gokit/pkg/logs"
+    "github.com/ncraft-io/ncraft-go/pkg/logs"
     "net/url"
     "strings"
     "time"

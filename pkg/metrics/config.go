@@ -1,13 +1,20 @@
 package metrics
 
 import (
-    "github.com/ncraft-io/ncraft-gokit/pkg/config"
+    "github.com/ncraft-io/ncraft-go/pkg/config"
 )
 
 type Config struct {
     Enable     bool   `json:"enable" default:"true"`
     Department string `json:"department"`
     Project    string `json:"project"`
+}
+
+func (c *Config) Enabled() bool {
+    if c != nil {
+        return c.Enable
+    }
+    return false
 }
 
 func NewConfig(path ...string) *Config {
