@@ -10,7 +10,7 @@ import (
     "time"
 )
 
-// InstrumentingMiddleware returns an endpoint middleware that records
+// Instrumenting returns an endpoint middleware that records
 // the duration of each invocation to the passed histogram. The middleware adds
 // a single field: "success", which is "true" if no error is returned, and
 // "false" otherwise.

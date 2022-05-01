@@ -7,7 +7,7 @@ import (
     "time"
 )
 
-// LoggingMiddleware returns an endpoint middleware that logs the
+// Logging returns an endpoint middleware that logs the
 // duration of each invocation, and the resulting error, if any.
 func Logging(logger log.Logger) endpoint.Middleware {
     return func(next endpoint.Endpoint) endpoint.Endpoint {

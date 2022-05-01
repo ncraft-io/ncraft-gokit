@@ -13,13 +13,13 @@ type Client interface {
     // Register our instance.
     Register(url, service string, tags []string) error
 
-    // At the end of our service lifecycle, for example at the end of func main,
+    // Deregister At the end of our service lifecycle, for example at the end of func main,
     // we should make sure to deregister ourselves. This is important! Don't
     // accidentally skip this step by invoking a log.Fatal or os.Exit in the
     // interim, which bypasses the defer stack.
     Deregister() error
 
-    // It's likely that we'll also want to connect to other services and call
+    // Instancer It's likely that we'll also want to connect to other services and call
     // their methods. We can build an Instancer to listen for changes from sd,
     // create Endpointer, wrap it with a load-balancer to pick a single
     // endpoint, and finally wrap it with a retry strategy to get something that

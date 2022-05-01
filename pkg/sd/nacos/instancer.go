@@ -3,8 +3,8 @@ package nacos
 import (
     "github.com/go-kit/kit/log"
     kitsd "github.com/go-kit/kit/sd"
-    "github.com/ncraft-io/ncraft-go/pkg/logs"
     "github.com/ncraft-io/ncraft-gokit/pkg/sd/internal/instance"
+    "github.com/ncraft-io/ncraft/go/pkg/ncraft/logs"
 )
 
 // Instancer yields instances stored in a certain etcd keyspace. Any kind of

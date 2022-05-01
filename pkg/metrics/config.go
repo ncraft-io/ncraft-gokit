@@ -1,7 +1,7 @@
 package metrics
 
 import (
-    "github.com/ncraft-io/ncraft-go/pkg/config"
+    "github.com/ncraft-io/ncraft/go/pkg/ncraft/config"
 )
 
 type Config struct {

@@ -1,8 +1,8 @@
 package tracing
 
 import (
-    "github.com/ncraft-io/ncraft-go/pkg/config"
-    "github.com/ncraft-io/ncraft-go/pkg/logs"
+    "github.com/ncraft-io/ncraft/go/pkg/ncraft/config"
+    "github.com/ncraft-io/ncraft/go/pkg/ncraft/logs"
     "strings"
 )
 

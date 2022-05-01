@@ -1,7 +1,7 @@
 package tracing
 
 import (
-    "github.com/ncraft-io/ncraft-go/pkg/logs"
+    "github.com/ncraft-io/ncraft/go/pkg/ncraft/logs"
     "github.com/opentracing/opentracing-go"
     "github.com/uber/jaeger-client-go"
     jaegercfg "github.com/uber/jaeger-client-go/config"

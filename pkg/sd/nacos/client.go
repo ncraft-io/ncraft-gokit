@@ -8,7 +8,7 @@ import (
     "github.com/nacos-group/nacos-sdk-go/common/constant"
     "github.com/nacos-group/nacos-sdk-go/model"
     "github.com/nacos-group/nacos-sdk-go/vo"
-    "github.com/ncraft-io/ncraft-go/pkg/logs"
+    "github.com/ncraft-io/ncraft/go/pkg/ncraft/logs"
     "net/url"
     "strconv"
     "strings"
