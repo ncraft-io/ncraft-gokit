@@ -1,7 +1,10 @@
 package http
 
-import "net/http"
+import (
+    "context"
+    "net/http"
+)
 
 type ResponseWriter interface {
-    WriteHttpResponse(writer http.ResponseWriter) error
+    WriteHttpResponse(ctx context.Context, writer http.ResponseWriter) error
 }
