@@ -12,7 +12,7 @@ require (
 	github.com/mojo-lang/mojo/go v0.0.0-20221213065412-1255d3ef3896
 	github.com/mr-tron/base58 v1.2.0
 	github.com/nacos-group/nacos-sdk-go v1.0.9
-	github.com/ncraft-io/ncraft/go v0.0.0-20221013072845-8008a0f0c71e
+	github.com/ncraft-io/ncraft/go v0.0.0-20221226040705-cd865648f5a5
 	github.com/opentracing/opentracing-go v1.2.0
 	github.com/pkg/errors v0.9.1
 	github.com/uber/jaeger-client-go v2.25.0+incompatible

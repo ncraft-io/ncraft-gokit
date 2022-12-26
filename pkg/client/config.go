@@ -1,22 +1,24 @@
 package client
 
 import (
-    "github.com/ncraft-io/ncraft-gokit/pkg/sd"
-    "github.com/ncraft-io/ncraft/go/pkg/ncraft/config"
-    "github.com/ncraft-io/ncraft/go/pkg/ncraft/logs"
-    "strings"
+	"strings"
+
+	"github.com/ncraft-io/ncraft-gokit/pkg/sd"
+	"github.com/ncraft-io/ncraft-gokit/pkg/utils"
+
+	"github.com/ncraft-io/ncraft/go/pkg/ncraft/logs"
 )
 
 type Config struct {
-    sd.Config
+	sd.Config
 }
 
 func NewConfig(path ...string) *Config {
-    cfg := &Config{}
-    err := config.Get(path...).Scan(cfg)
-    if err != nil {
-        logs.Errorw("failed to get the server config from "+strings.Join(path, "."), "error", err.Error())
-        return nil
-    }
-    return cfg
+	cfg := &Config{}
+
+	if err := utils.GetNcraftConfigValue("client").Scan(cfg); err != nil {
+		logs.Warnw("failed to get the ncraft.client config from ", "path", strings.Join(path, "."), "error", err)
+		return nil
+	}
+	return cfg
 }

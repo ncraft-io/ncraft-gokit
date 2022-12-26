@@ -1,29 +1,33 @@
 package metrics
 
 import (
-    "github.com/ncraft-io/ncraft/go/pkg/ncraft/config"
+	"strings"
+
+	"github.com/ncraft-io/ncraft/go/pkg/ncraft/logs"
+
+	"github.com/ncraft-io/ncraft-gokit/pkg/utils"
 )
 
 type Config struct {
-    Enable     bool   `json:"enable" default:"true"`
-    Department string `json:"department"`
-    Project    string `json:"project"`
+	Enable     bool   `json:"enable" default:"true"`
+	Department string `json:"department"`
+	Project    string `json:"project"`
 }
 
 func (c *Config) Enabled() bool {
-    if c != nil {
-        return c.Enable
-    }
-    return false
+	if c != nil {
+		return c.Enable
+	}
+	return false
 }
 
 func NewConfig(path ...string) *Config {
-    cfg := &Config{}
-    err := config.GetValue(path...).Scan(cfg)
-    if err != nil {
-        //logs.Errorw("failed to get the server config from "+strings.Join(path, "."), "error", err.Error())
-        return nil
-    }
+	cfg := &Config{}
 
-    return cfg
+	if err := utils.GetNcraftConfigValue("metrics").Scan(cfg); err != nil {
+		logs.Warnw("failed to get the ncraft.metrics config from ", "path", strings.Join(path, "."), "error", err)
+		return nil
+	}
+
+	return cfg
 }
