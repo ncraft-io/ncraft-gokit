@@ -23,8 +23,8 @@ func GetHost() string {
         return ret
     }
 
-    panic(errors.New("ip not found"))
-    return ""
+    // return loopback address
+    return "127.0.0.1"
 }
 
 func GetHostname() string {
