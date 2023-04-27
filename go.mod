@@ -6,9 +6,9 @@ require (
 	github.com/alecthomas/assert v0.0.0-20170929043011-405dbfeb8e38
 	github.com/go-kit/kit v0.12.0
 	github.com/json-iterator/go v1.1.12
-	github.com/mojo-lang/core/go v0.0.0-20230427070306-34ab6ed73f1c
-	github.com/mojo-lang/lang/go v0.0.0-20230427071021-4d8911209d5a
-	github.com/mojo-lang/mojo/go v0.0.0-20230427080309-53cd114ae616
+	github.com/mojo-lang/core/go v0.0.0-20230427095043-961105c650c8
+	github.com/mojo-lang/lang/go v0.0.0-20230427095418-142f6e7329e6
+	github.com/mojo-lang/mojo/go v0.0.0-20230427121243-9bbe6e49e6f7
 	github.com/mr-tron/base58 v1.2.0
 	github.com/nacos-group/nacos-sdk-go v1.1.4
 	github.com/ncraft-io/ncraft/go v0.0.0-20221226040705-cd865648f5a5
@@ -57,9 +57,9 @@ require (
 	github.com/mattn/go-isatty v0.0.14 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
-	github.com/mojo-lang/document/go v0.0.0-20230427070517-a007d4b8d5e5 // indirect
-	github.com/mojo-lang/openapi/go v0.0.0-20230427071316-7cf753c14976 // indirect
-	github.com/mojo-lang/protobuf/go v0.0.0-20230427073849-2ad5e5f6da4d // indirect
+	github.com/mojo-lang/document/go v0.0.0-20230427095224-881190052073 // indirect
+	github.com/mojo-lang/openapi/go v0.0.0-20230427100424-e4d8e3ceff64 // indirect
+	github.com/mojo-lang/protobuf/go v0.0.0-20230427095904-99b484646c55 // indirect
 	github.com/phpdave11/gofpdf v1.4.2 // indirect
 	github.com/sergi/go-diff v1.0.0 // indirect
 	github.com/stephenafamo/goldmark-pdf v0.0.0-20210426082656-1b7b737070eb // indirect
