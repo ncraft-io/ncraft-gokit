@@ -3,9 +3,9 @@ package http
 import (
 	"testing"
 
-	"github.com/alecthomas/assert"
 	jsoniter "github.com/json-iterator/go"
 	"github.com/mojo-lang/core/go/pkg/mojo/core"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestEnvelopedResponse_ToErrorWrapped(t *testing.T) {

@@ -2,9 +2,8 @@ package http
 
 import (
 	"context"
+	"github.com/stretchr/testify/assert"
 	"testing"
-
-	"github.com/alecthomas/assert"
 )
 
 func TestIsEnvelopeStyle(t *testing.T) {
