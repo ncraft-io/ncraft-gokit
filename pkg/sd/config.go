@@ -13,12 +13,14 @@ import (
 )
 
 type Config struct {
-	Mode   string                    `json:"mode" yaml:"mode" db:"mode"`
-	Url    string                    `json:"url" yaml:"url"`
-	Retry  *retry.Config             `json:"retry" yaml:"retry" db:"retry"`
-	EtcdV3 *etcdv3.Config            `json:"etcd" yaml:"etcd"`
-	Nacos  *nacos.Config             `json:"nacos" yaml:"nacos"`
-	Direct map[string]*direct.Config `json:"direct" yaml:"direct" db:"direct"`
+	// sd mode, like etcd, nacos, direct
+	Mode      string                    `json:"mode" yaml:"mode" db:"mode"`
+	Transport string                    `json:"transport" yaml:"transport" db:"transport"` // http, or grpc
+	Url       string                    `json:"url" yaml:"url"`
+	Retry     *retry.Config             `json:"retry" yaml:"retry" db:"retry"`
+	EtcdV3    *etcdv3.Config            `json:"etcd" yaml:"etcd"`
+	Nacos     *nacos.Config             `json:"nacos" yaml:"nacos"`
+	Direct    map[string]*direct.Config `json:"direct" yaml:"direct" db:"direct"`
 }
 
 func NewConfig(path ...string) *Config {

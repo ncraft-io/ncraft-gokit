@@ -3,7 +3,7 @@ package nacos
 import (
 	"testing"
 
-	"github.com/nacos-group/nacos-sdk-go/common/constant"
+	"github.com/nacos-group/nacos-sdk-go/v2/common/constant"
 )
 
 func TestClient_Register(t *testing.T) {
