@@ -1,6 +1,7 @@
 package http
 
 import (
+	"fmt"
 	"unsafe"
 
 	jsoniter "github.com/json-iterator/go"
@@ -40,7 +41,12 @@ func (codec *EnvelopedResponseCodec) Encode(ptr unsafe.Pointer, stream *jsoniter
 	if resp.Error != nil {
 		if resp.Error.Code != nil {
 			stream.WriteObjectField("code")
-			stream.WriteString(resp.Error.Code.Format())
+			if c := resp.Error.Code.HttpStatusCode; c > 0 {
+				stream.WriteString(fmt.Sprint(c))
+			} else {
+				stream.WriteString(resp.Error.Code.Format())
+			}
+
 			first = false
 		}
 
